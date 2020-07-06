@@ -23,7 +23,7 @@ public class CarsController {
         cars.add(car2);
         cars.add(car3);
 
-        model.addAllAttributes(cars);
+        model.addAttribute("cars",cars);
         return "cars";
     }
 }
