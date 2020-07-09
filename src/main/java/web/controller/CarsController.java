@@ -1,5 +1,6 @@
 package web.controller;
 
+import web.containers.CarListContainer;
 import web.models.Car;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,18 +13,18 @@ import java.util.List;
 @Controller
 public class CarsController {
     @GetMapping(value = "cars")
-    public String printCars(ModelMap model) {
-
-        List<Car> cars = new ArrayList<>();
-
-        Car car1 = new Car("car1", 11);
-        Car car2 = new Car("car2", 12);
-        Car car3 = new Car("ca3", 13);
-        cars.add(car1);
-        cars.add(car2);
-        cars.add(car3);
-
-        model.addAttribute("cars",cars);
+    public String printCars(ModelMap model)  throws Exception {
+        List<Car> cars = getListOfCars();
+        CarListContainer listContainer = new CarListContainer();
+        listContainer.setCars(cars);
+        model.addAttribute("Cars",cars);
         return "cars";
+    }
+    private List<Car> getListOfCars(){
+        List<Car> cars = new ArrayList<Car>();
+        cars.add(new Car("car1","model1",11));
+        cars.add(new Car("car1","model2",21));
+        cars.add(new Car("car2","model3",33));
+        return cars;
     }
 }

@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        p {
+            font-size: 130%;
+        }
+        q:lang(en) {
+            quotes: "\00AB" "\00BB";
+        }
+        q:lang(ru) {
+            quotes: "\00AB" "\00BB";
+        }
+    </style>
 </head>
 <body>
 <div>
+    <!-------------------------------------------
+    <p>"/cars?locale=en" <q lang="en">Cars</q>.</p>
+    <p>"/cars?locale=ru" <q lang="en">Машины</q>.</p>
+------------------------------------------------->
+
     <!--/*@thymesVar id="cars" type=""*/-->
     <th:block th:each="data : ${cars}">
         <h1 th:text="${data}"></h1>
