@@ -1,5 +1,7 @@
 package web.controller;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import web.containers.CarListContainer;
 import web.models.Car;
 import org.springframework.stereotype.Controller;
@@ -12,12 +14,13 @@ import java.util.List;
 
 @Controller
 public class CarsController {
-    @GetMapping(value = "cars")
-    public String printCars(ModelMap model)  throws Exception {
+    //@GetMapping(value = "cars")
+    @RequestMapping(value = "cars",method = RequestMethod.GET)
+    public String printCars(ModelMap model) throws Exception {
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
         listContainer.setCars(cars);
-        model.addAttribute("Cars",cars);
+        model.addAttribute("Cars",listContainer);
         return "cars";
     }
     private List<Car> getListOfCars(){
