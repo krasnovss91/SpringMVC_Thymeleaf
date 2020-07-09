@@ -19,7 +19,7 @@ public class CarsController {
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
         listContainer.setCars(cars);
-        model.addAttribute("cars",listContainer);
+        model.addAttribute("cars",listContainer.getCars());
         return "cars";
     }
     private List<Car> getListOfCars(){
