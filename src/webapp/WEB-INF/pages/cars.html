@@ -7,9 +7,11 @@
         p {
             font-size: 130%;
         }
+
         q:lang(en) {
             quotes: "\00AB" "\00BB";
         }
+
         q:lang(ru) {
             quotes: "\00AB" "\00BB";
         }
@@ -21,11 +23,13 @@
     <p>"/cars?locale=en" <q lang="en">Cars</q>.</p>
     <p>"/cars?locale=ru" <q lang="en">Машины</q>.</p>
 ------------------------------------------------->
+    
+    <tr th:each="car : ${cars}">
+        <td th:text="${car.name}"</td>
+        <td th:text="${car.model}"</td>
+        <td th:text="${car.series}"</td>
 
-    <!--/*@thymesVar id="cars" type=""*/-->
-    <th:block th:each="data : ${cars}">
-        <h1 th:text="${data}"></h1>
-    </th:block>
+    </tr>
 </div>
 </body>
 </html>
