@@ -14,17 +14,16 @@ import java.util.List;
 
 @Controller
 public class CarsController {
-    //@GetMapping(value = "cars")
-    @RequestMapping(value = "cars",method = RequestMethod.GET)
-    public String printCars(ModelMap model) throws Exception {
+    @GetMapping(value = "cars")
+    public String printCars(ModelMap model) {
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
         listContainer.setCars(cars);
-        model.addAttribute("Cars",listContainer);
+        model.addAttribute("cars",listContainer);
         return "cars";
     }
     private List<Car> getListOfCars(){
-        List<Car> cars = new ArrayList<Car>();
+        List<Car> cars = new ArrayList<>();
         cars.add(new Car("car1","model1",11));
         cars.add(new Car("car1","model2",21));
         cars.add(new Car("car2","model3",33));
