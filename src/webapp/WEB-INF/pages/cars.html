@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -23,7 +23,12 @@
     <p>"/cars?locale=en" <q lang="en">Cars</q>.</p>
     <p>"/cars?locale=ru" <q lang="en">Машины</q>.</p>
 ------------------------------------------------->
-    
+    <tr>
+        <th> NAME</th>
+        <th> MODEL </th>
+        <th> SERIES </th>
+
+    </tr>
     <tr th:each="car : ${cars}">
         <td th:text="${car.name}"</td>
         <td th:text="${car.model}"</td>
