@@ -19,8 +19,10 @@ public class CarsController {
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
         listContainer.setCars(cars);
-        model.addAttribute("cars",listContainer.getCars());
-        model.addAttribute("cars",listContainer);
+        List<Car> cars1 = listContainer.getCars();
+        model.addAttribute("cars",cars1);
+        //model.addAttribute("cars",listContainer.getCars());
+     //   model.addAttribute("cars",listContainer);
         //model.addAttribute("cars",getListOfCars());
         return "cars";
     }
