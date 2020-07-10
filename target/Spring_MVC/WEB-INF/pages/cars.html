@@ -23,13 +23,18 @@
     <p>"/cars?locale=en" <q lang="en">Cars</q>.</p>
     <p>"/cars?locale=ru" <q lang="en">Машины</q>.</p>
 ------------------------------------------------->
+    <table>
+        <tr th:each="car : ${cars}">
+            <p>
+            <td th:text="${car.name}"
+            </td>
+            <td th:text="${car.model}"
+            </td>
+            <td th:text="${car.series}"
+            </td> </p>
 
-    <tr th:each="car : ${cars}">
-        <p>  <td th:text="${car.name} "</td>
-         <td th:text="${car.model} "</td>
-         <td th:text="${car.series} "</td> </p>
-
-    </tr>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
