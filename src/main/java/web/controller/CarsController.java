@@ -16,21 +16,27 @@ public class CarsController {
     @GetMapping(value = "cars")
     public String printCars(@RequestParam Locale locale ,ModelMap model) {
        // @RequestParam Locale locale = new Locale("");
-     //   Locale en = new Locale("en");
-      //  Locale ru = new Locale("ru");
-        String en = "CARS";
-        String ru = "МАШИНЫ";
+        Locale en = new Locale("en");
+        Locale ru = new Locale("ru");
+    //    String en = "CARS";
+     //   String ru = "МАШИНЫ";
+        String lang;
 
      //   Locale locale = new Locale("");
 
         //model.addAttribute("locale",locale);
 
-        if (locale.equals("ru")){
-            model.addAttribute(ru);
+        if (locale.equals(ru)){
+          //  model.addAttribute(ru);
+            lang = "МАШИНЫ";
+            model.addAttribute("lang",lang);
         }
-        if(locale.equals("en")){
-            model.addAttribute(en);
+        if(locale.equals(en)){
+        //    model.addAttribute(en);
+            lang = "CARS";
+            model.addAttribute("lang",lang);
         }
+      //  model.addAttribute("lang",lang);
 
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
@@ -40,8 +46,8 @@ public class CarsController {
         //model.addAttribute("cars",listContainer.getCars());
      //   model.addAttribute("cars",listContainer);
         //model.addAttribute("cars",getListOfCars());
-       // return "cars";
         return "cars";
+      //  return "lang","cars";
 
     }
     private List<Car> getListOfCars(){
