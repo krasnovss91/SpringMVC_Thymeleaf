@@ -10,12 +10,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 @Controller
 public class CarsController {
+   // @GetMapping(value = "cars?locale")
     @GetMapping(value = "cars")
     public String printCars(ModelMap model) {
+     //   Locale en = new Locale("en");
+      //  Locale ru = new Locale("ru");
+        String en = "CARS";
+        String ru = "МАШИНЫ";
+
+        Locale locale = new Locale("");
+
+        //model.addAttribute("locale",locale);
+
+        if (locale.equals("ru")){
+            model.addAttribute(ru);
+        }
+        if(locale.equals("en")){
+            model.addAttribute(en);
+        }
+
         List<Car> cars = getListOfCars();
         CarListContainer listContainer = new CarListContainer();
         listContainer.setCars(cars);
@@ -25,6 +43,8 @@ public class CarsController {
      //   model.addAttribute("cars",listContainer);
         //model.addAttribute("cars",getListOfCars());
         return "cars";
+       // return "cars?locale";
+
     }
     private List<Car> getListOfCars(){
         List<Car> cars = new ArrayList<>();
