@@ -15,7 +15,6 @@ import java.util.Locale;
 public class CarsController {
     @GetMapping(value = "cars")
     public String printCars(@RequestParam Locale locale ,ModelMap model) {
-       // @RequestParam Locale locale = new Locale("");
         Locale en = new Locale("en");
         Locale ru = new Locale("ru");
     //    String en = "CARS";
@@ -43,9 +42,7 @@ public class CarsController {
         listContainer.setCars(cars);
         List<Car> cars1 = listContainer.getCars();
         model.addAttribute("cars",cars1);
-        //model.addAttribute("cars",listContainer.getCars());
-     //   model.addAttribute("cars",listContainer);
-        //model.addAttribute("cars",getListOfCars());
+ 
         return "cars";
       //  return "lang","cars";
 
