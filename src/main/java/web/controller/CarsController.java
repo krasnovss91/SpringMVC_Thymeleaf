@@ -30,6 +30,7 @@ public class CarsController {
             lang = "МАШИНЫ";
             model.addAttribute("lang",lang);
         }
+
         if(locale.equals(en)){
         //    model.addAttribute(en);
             lang = "CARS";
@@ -42,7 +43,7 @@ public class CarsController {
         listContainer.setCars(cars);
         List<Car> cars1 = listContainer.getCars();
         model.addAttribute("cars",cars1);
- 
+
         return "cars";
       //  return "lang","cars";
 
