@@ -1,42 +1,39 @@
 package web.models;
 
 public class Car {
-    //int id, series;
     String name;
     String model;
     int series;
 
-    /*public Car(String name, int series) {
-        this.name = name;
-        this.series = series;
-    }
-  */
-    public Car(String name,String model, int series) {
-      //  this.id = id;
+
+    public Car(String name, String model, int series) {
         this.model = model;
         this.name = name;
         this.series = series;
     }
 
-  /*  public int getId() {
-        return id;
+
+    public String getName() {
+        return name;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    } */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public String getName(){return name;}
+    public String getModel() {
+        return model;
+    }
 
-    public void setName(String name) {this.name = name;}
+    public void setModel(String model) {
+        this.model = model;
+    }
 
-    public String getModel(){return  model;}
+    public int getSeries() {
+        return series;
+    }
 
-    public void setModel(String model){this.model = model;}
-
-    public  int getSeries(){return series;}
-
-    public void setSeries(int series){
+    public void setSeries(int series) {
         this.series = series;
     }
 
